@@ -7,7 +7,7 @@ const app = express();
 // Middleware
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
-app.use(cors()); 
+app.use(cors({origin:"https://mahabubalom.vercel.app"})); 
 
 
 const Authenticator = (req,res,next)=>{
@@ -105,6 +105,7 @@ app.put("/api/mamla/:id/:year",Authenticator, async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
+
 
 
 
