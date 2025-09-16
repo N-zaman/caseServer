@@ -22,7 +22,7 @@ app.listen(5000, () => {
 });
 
 // MongoDB Connection
-const connectionString = "mongodb+srv://userPirsab:passwordPirsab@clusterpirsab.ye81qkn.mongodb.net/?retryWrites=true&w=majority&appName=ClusterPirsab"
+const connectionString = process.env.CONNETING_STRING 
   
 mongoose
   .connect(connectionString)
@@ -105,5 +105,6 @@ app.put("/api/mamla/:id/:year",Authenticator, async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
+
 
 
