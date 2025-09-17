@@ -1,13 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require('dotenv').config();
 
 const app = express();
 
 // Middleware
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
-app.use(cors({origin:"https://mahabubalom.vercel.app"})); 
+app.use(cors()); 
 
 
 const Authenticator = (req,res,next)=>{
@@ -105,6 +106,7 @@ app.put("/api/mamla/:id/:year",Authenticator, async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
+
 
 
 
