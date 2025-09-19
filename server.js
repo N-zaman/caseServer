@@ -13,7 +13,7 @@ app.use(cors());
 
 const Authenticator = (req,res,next)=>{
   const data = req.body;
-  if(data.admin == "bismillah"){
+  if(data.admin == process.env.PASSWORD ){
     next();
   }
 }
@@ -106,6 +106,7 @@ app.put("/api/mamla/:id/:year",Authenticator, async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
+
 
 
 
